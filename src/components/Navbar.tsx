@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar as NavbarBs } from 'react-bootstrap';
+import { Container, Nav, Navbar as NavbarBs, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
@@ -16,6 +16,32 @@ const Navbar = () => {
             About
           </Nav.Link>
         </Nav>
+        <Button
+          variant='outline-light'
+          style={{
+            width: '3rem',
+            height: '3rem',
+            position: 'relative',
+            fontSize: '1.2rem',
+          }}
+        >
+          <i className='bi bi-cart'></i>
+          <div
+            className='rounded-circle bg-secondary d-flex justify-content-center align-items-center'
+            style={{
+              color: 'white',
+              width: '1.2rem',
+              height: '1.2rem',
+              position: 'absolute',
+              fontSize: '1.2rem',
+              bottom: 0,
+              right: 0,
+              transform: 'translate(25%,25%)',
+            }}
+          >
+            3
+          </div>
+        </Button>
       </Container>
     </NavbarBs>
   );
