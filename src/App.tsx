@@ -2,10 +2,11 @@ import { Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { Shop, About, Home } from './pages';
 import Navbar from './components/Navbar';
+import { CartProvider } from './context/CartContext';
 
 const App = () => {
   return (
-    <>
+    <CartProvider>
       <Navbar />
       <Container>
         <Routes>
@@ -14,7 +15,7 @@ const App = () => {
           <Route path='/about' element={<About />} />
         </Routes>
       </Container>
-    </>
+    </CartProvider>
   );
 };
 

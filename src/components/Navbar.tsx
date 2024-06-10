@@ -33,13 +33,13 @@ const Navbar = () => {
               width: '1.2rem',
               height: '1.2rem',
               position: 'absolute',
-              fontSize: '1.2rem',
+              fontSize: '1rem',
               bottom: 0,
               right: 0,
               transform: 'translate(25%,25%)',
             }}
           >
-            3
+            0
           </div>
         </Button>
       </Container>
