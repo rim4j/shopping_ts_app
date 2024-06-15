@@ -1,4 +1,5 @@
 import { Card, Button } from 'react-bootstrap';
+import { useCartContext } from './../context/CartContext';
 
 type ProductProps = {
   id: number;
@@ -8,7 +9,9 @@ type ProductProps = {
 };
 
 const Product = ({ id, title, price, imgUrl }: ProductProps) => {
-  const qty = 0;
+  const { getItemQty, addItem, decreaseItem, removeItem } = useCartContext();
+
+  const qty = getItemQty(id);
 
   return (
     <Card className='h-100'>
@@ -25,7 +28,9 @@ const Product = ({ id, title, price, imgUrl }: ProductProps) => {
         </Card.Title>
         <div className='mt-auto'>
           {qty === 0 ? (
-            <Button className='w-100 btn-secondary'>Add to Cart</Button>
+            <Button className='w-100 btn-secondary' onClick={() => addItem(id)}>
+              Add to Cart
+            </Button>
           ) : (
             <div
               className='d-flex align-items-center flex-column'
@@ -35,11 +40,22 @@ const Product = ({ id, title, price, imgUrl }: ProductProps) => {
                 className='d-flex align-items-center justify-content-center '
                 style={{ gap: '0.5rem' }}
               >
-                <Button className='btn-secondary'>+</Button>
+                <Button className='btn-secondary' onClick={() => addItem(id)}>
+                  +
+                </Button>
                 <span className='fs-5 m-3 text-light'>{qty}</span>
-                <Button className='btn-secondary'>-</Button>
+                <Button
+                  className='btn-secondary'
+                  onClick={() => decreaseItem(id)}
+                >
+                  -
+                </Button>
               </div>
-              <Button className='btn-light' size='sm'>
+              <Button
+                className='btn-light'
+                size='sm'
+                onClick={() => removeItem(id)}
+              >
                 Remove
               </Button>
             </div>
