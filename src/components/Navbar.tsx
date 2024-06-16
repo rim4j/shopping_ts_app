@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 
 const Navbar = () => {
-  const { cartQty } = useCartContext();
+  const { cartQty, openCart } = useCartContext();
+
   return (
     <NavbarBs className='bg-dark text-light mb-3'>
       <Container>
@@ -19,6 +20,7 @@ const Navbar = () => {
           </Nav.Link>
         </Nav>
         <Button
+          onClick={openCart}
           variant='outline-light'
           style={{
             width: '3rem',
