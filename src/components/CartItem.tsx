@@ -1,4 +1,4 @@
-import { Stack, Button, Badge } from 'react-bootstrap';
+import { Stack, Button } from 'react-bootstrap';
 import ProductItems from '../data/products.json';
 import { useCartContext } from '../context/CartContext';
 
